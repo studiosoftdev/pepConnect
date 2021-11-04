@@ -5,9 +5,6 @@ import java.time.format.DateTimeFormatter; //so it doesnt look terrible
 
 public class PCS {
 	public static void main(String[] args){
-		LocalDateTime timestamp; // used to show message times
-		DateTimeFormatter timeformat = DateTimeFormatter.ofPattern("HH:mm:ss");
-		String msgtime = "";
 		try{  
 			ServerSocket ss = new ServerSocket(8086); //setup our server socket over port 8086
 			Socket s = ss.accept(); //establishes connection   
@@ -20,10 +17,8 @@ public class PCS {
 				msg = (String) dis.readUTF();
 				if(msg.length() != 0){
 					if(!(msg.equals("!quit"))){
-						timestamp = LocalDateTime.now();
-						msgtime = "[" + timestamp.format(timeformat) + "] ";
-						System.out.println(msgtime + uname + ": " + msg);
-						dos.writeUTF(msgtime + uname + ": " + msg);
+						System.out.println("[" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + "] " + uname + ": " + msg);
+						dos.writeUTF("[" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + "] " + uname + ": " + msg);
 						dos.flush();
 					}
 					else{

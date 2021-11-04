@@ -22,6 +22,8 @@ public class PCC{
 			}
 			dos.close();  
 			s.close();  
-		} catch(Exception e) {System.out.println(e);}  
+		} catch(Exception e) {
+			System.out.println(e);
+		}  
 	}
 }

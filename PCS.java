@@ -34,6 +34,8 @@ public class PCS {
 			dis.close();
 			s.close();
 			ss.close();  
-		} catch(Exception e){System.out.println(e);}
+		} catch(Exception e){
+			System.out.println(e);
+		}
 	}
 }
